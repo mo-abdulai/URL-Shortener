@@ -49,7 +49,7 @@ Start the development server:
     npm start
 
 
-The client should run on http://localhost:3000, and the server on http://localhost:5000.
+The client should run on http://localhost:3000, and the server on http://localhost:8080.
 
 # Usage
 
