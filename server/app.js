@@ -9,8 +9,10 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://127.0.0.1:27017/URl-shortener", {useNewUrlParser: true});
+const password = process.env.PASSWORD
+const user = process.env.MONGODB_USER
 
+mongoose.connect(`mongodb+srv://${user}:${password}@cluster0.egpg9ul.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`, {useNewUrlParser: true});
 
 const urlSchema = new mongoose.Schema({
     url: {
@@ -36,7 +38,7 @@ app.post("/generateUrl", (req, res) => {
         res.send("An error was encountered! Please try again.");
     }
 
-    res.json({message: `http://localhost:8080/${newURL._id}`, type: "Success"})
+    res.json({message: `https://url-shortna.netlify.app/${newURL._id}`, type: "Success"})
 })
 
 
